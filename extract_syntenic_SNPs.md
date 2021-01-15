@@ -1,8 +1,8 @@
 # Objective: Pilar wants to extract the syntenic SNPs for constructing the phylogenetic tree.
-  Josh developped some codes for filtering syntenic SNPs, and the link can be see here: https://github.com/jlevy44/JoshuaTree2/
+  Josh developped some codes for filtering syntenic SNPs, and the link can be see [here](https://github.com/jlevy44/JoshuaTree2/)
   But it is hard for me to figure out. I debuged for a long while but could not make it work. Pilar need the file hurry, so I have to find other way to extract the syntenic SNPs.
   
-  Here is the general idea about how I process the data: Joel Martin and I mapped the reads from distachyon, stacei, and hybridum samples back to Bd-21 reference, ABR114 reference, and the fake parents' reference (concatenate the Bd-21 reference and ABR114 reference) respectively, then called the variants with GATK. Then I've applied the same approach as (Loren Rieseberg's nature paper)[https://www.nature.com/articles/s41586-020-2467-6] and convert all of the SNPs relative to the distachyon reference/D-subgenome to the sylvaticum coordinate. By the way, for hybridum samples, I split them into two files of S-subgenome and D-subgenome.
+  Here is the general idea about how I process the data: Joel Martin and I mapped the reads from distachyon, stacei, and hybridum samples back to Bd-21 reference, ABR114 reference, and the fake parents' reference (concatenate the Bd-21 reference and ABR114 reference) respectively, then called the variants with GATK. Then I've applied the same approach as [Loren Rieseberg's nature paper](https://www.nature.com/articles/s41586-020-2467-6) and convert all of the SNPs relative to the distachyon reference/D-subgenome to the sylvaticum coordinate. By the way, for hybridum samples, I split them into two files of S-subgenome and D-subgenome.
 
 The approach is that for each SNPs for D-subgenome or distachyon samples, we extract the 200bp context sequence surrounding the SNPs from the distachoyn reference genome. Then considering those 201 bp short sequences as reads, mapping them back to the stacei reference with bwa mem, then inferring the position for the target SNPs in the sylvaticum coordinate, and rewrite them into a single vcf file. Then I filtered out the discordant SNPs and merge all of the vcf files together.
 
@@ -135,11 +135,11 @@ conda install -c bioconda perl-parallel-forkmanager
 
 conda install -c bioconda bwa
 
-#Convert the distachyon samples with adapted (convert_reference.pl)[https://github.com/owensgl/wild_gwas_2018/blob/master/xrqpos2ha412pos_bwa.pl]
+#Convert the distachyon samples with adapted [convert_reference.pl](https://github.com/owensgl/wild_gwas_2018/blob/master/xrqpos2ha412pos_bwa.pl)
 
 perl ~/Github/B_hybridum/scripts/convert_reference.pl ~/cscratch/B_hybridum/remapped_stacei/biSNPs_only_distachyon_genotype_gvcfs.f1.bf=g10-G3-Q40-QD5.anno.vcf.recode.vcf.gz Bdist
 
-#Convert the distachyon sub-genome samples with adapted (convert_reference.pl)[https://github.com/owensgl/wild_gwas_2018/blob/master/xrqpos2ha412pos_bwa.pl]
+#Convert the distachyon sub-genome samples with adapted [convert_reference.pl](https://github.com/owensgl/wild_gwas_2018/blob/master/xrqpos2ha412pos_bwa.pl)
 
 perl ~/Github/B_hybridum/scripts/convert_reference.pl ~/cscratch/B_hybridum/remapped_stacei/biSNPs_only_revised_Bdist_BH_genotype_gvcfs.f1.bf=g10-G3-Q40-QD5.anno.vcf.recode.vcf.gz Bdist_D_subgeno
 
@@ -250,7 +250,7 @@ zgrep -v "#" syntenic_common_concordance_SNPs_Bdist.remappedStacei.distachyon_ge
 vcftools --vcf /global/u2/l/llei2019/cscratch/B_hybridum/remapped_stacei/re_syntenic_common_concordance_SNPs_Bdist.remappedStacei.distachyon_geno.vcf --remove /global/u2/l/llei2019/cscratch/B_hybridum/remapped_stacei/remove_indi.txt --recode --recode-INFO-all --out /global/u2/l/llei2019/cscratch/B_hybridum/remapped_stacei/filter_staceiInhyb_re_syntenic_common_concordance_SNPs_Bdist.remappedStacei.distachyon_geno.vcf
 
 ```
-### Step9 : convert the vcf file into the nexus format with (vcf2phylip.py)[https://github.com/edgardomortiz/vcf2phylip]
+### Step9 : convert the vcf file into the nexus format with [vcf2phylip.py](https://github.com/edgardomortiz/vcf2phylip)
 
 ```
 cd ~/bscratch/software/
