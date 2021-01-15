@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --qos=genepool
+#SBATCH --time=10:00:00
+#SBATCH --nodes=10
+#SBATCH --account=plant
+#SBATCH --job-name=vcf_diff_site
+#SBATCH --output=vcf_diff_site.out
+#SBATCH --error=vcf_diff_site.err
+
+source activate /global/homes/l/llei2019/bscratch/software/my_work_en
+
+#vcftools --gzvcf /global/u2/l/llei2019/cscratch/B_hybridum/remapped_stacei/Bdist_D_subgeno.remappedStacei.vcf.gz --gzdiff /global/u2/l/llei2019/cscratch/B_hybridum/remapped_stacei/biSNPs_Bstacei_genotype_gvcfs.f1.bf=g10-G3-#Q40-QD5.anno.vcf.gz.recode.vcf.gz --not-chr --diff-site --out /global/u2/l/llei2019/cscratch/B_hybridum/remapped_stacei/Bdist_D_subgeno_remapped_vs_biSNPs_Bstacei_genotype# 
+vcftools --gzvcf /global/u2/l/llei2019/cscratch/B_hybridum/remapped_stacei/Bdist.remappedStacei.distachyon_geno.vcf.gz --gzdiff /global/u2/l/llei2019/cscratch/B_hybridum/remapped_stacei/biSNPs_Bstacei_genotype_gvcfs.f1.bf=g10-G3-Q40-QD5.anno.vcf.gz.recode.vcf.gz --diff-site --out /global/u2/l/llei2019/cscratch/B_hybridum/remapped_stacei/Bdist.remapped_vs_biSNPs_Bstacei_genotype 

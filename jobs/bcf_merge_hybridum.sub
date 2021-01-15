@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --qos=genepool
+#SBATCH --time=72:00:00
+#SBATCH --nodes=10
+#SBATCH --account=plant
+#SBATCH --job-name=bcf_merge
+#SBATCH --output=bcf_merge.out
+#SBATCH --error=bcf_merge.err
+
+source activate /global/homes/l/llei2019/bscratch/software/my_work_en
+
+
+bcftools merge /global/u2/l/llei2019/cscratch/B_hybridum/remapped_stacei/common_concordance_SNPs_Bdist_D_subgeno.remappedStacei.vcf.gz \
+/global/u2/l/llei2019/cscratch/B_hybridum/remapped_stacei/common_concordance_SNPs_biSNPs_Bstacei_genotype_gvcfs.f1.bf=g10-G3-Q40-QD5.anno.vcf.gz.recode.vcf.gz \
+/global/u2/l/llei2019/cscratch/B_hybridum/remapped_stacei/common_concordance_SNPs_Bdist.remappedStacei.distachyon_geno.vcf.gz \
+/global/u2/l/llei2019/cscratch/B_hybridum/remapped_stacei/common_concordance_SNPs_biSNPs_revised_only_forBstacei_BH_genotype_gvcfs.f1.bf=g10-G3-Q40-QD5.anno.vcf.recode.vcf.gz \
+--force-samples -O z -o /global/u2/l/llei2019/cscratch/B_hybridum/remapped_stacei/common_concordance_SNPs_hybridum_stacei_distachyon.vcf.gz
