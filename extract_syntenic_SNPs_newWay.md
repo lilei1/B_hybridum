@@ -36,7 +36,7 @@ The removed stacei sample file are stored [here](https://github.com/lilei1/B_hyb
 vcftools --gzvcf /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/fake_parents_ref_way/raw_Bdist.vcf.gz --remove /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/fake_parents_ref_way/removed_stacei_from_D.txt  --recode --recode-INFO-all --out purify_Bdist
 ```
 
-#filter out the distachyon samples from raw _Bstacei.vcf.gz
+#Filter out the distachyon samples from raw _Bstacei.vcf.gz
 The removed distachyon sample file are stored [here](https://github.com/lilei1/B_hybridum/blob/main/files/removed_distachyon_from_S.txt)
 
 ```
@@ -44,7 +44,7 @@ vcftools --gzvcf /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/fake_pa
 ```
 
 #Change the header and chromosome ID:
-##replace the chormosome id  the hybridum-stacei subgenome
+##replace the chromosome id  the hybridum-stacei subgenome
 
 ```
 sed 's/Bstacei.//g' purify_Bstacei.recode.vcf >revised_purify_Bstacei.recode.vcf
@@ -63,14 +63,14 @@ grep -v "#" revised_purify_Bstacei.recode.vcf >Nohead_revised_purify_Bstacei.rec
 ```
 vi head_revised_Bstacei_purify_hybridum.recode.vcf
 
-add S_ to the end of each accessions of hybridum
+#add S_ to the end of each accessions of hybridum
 ```
 
 ```
 cat head_revised_purify_Bstacei.recode.vcf Nohead_revised_purify_Bstacei.recode.vcf >fix_header_revised_purify_Bstacei.recode.vcf 
 ```
 
-#handle dista sample
+#Handle distachyon sample
 
 ```
 grep "#" revised_purify_Bdist.recode.vcf >head_revised_purify_Bdist.recode.vcf
@@ -102,7 +102,7 @@ bcftools index fix_header_revised_Bdist_purify_hybridum.vcf.gz
 
 ```
 
-Since we think we need to do filtering and only extract the SNPs and PASS one, so I can run vcf tools and only extract the PASS and the SNPs. 
+Since we think we need to do filtering and only extract the SNPs and 'PASS' one, so I can run vcf tools and only extract the PASS and the SNPs. 
 
 #Extract the "PASS" one:
 ```
@@ -110,7 +110,7 @@ bcftools view -f PASS fix_header_revised_purify_Bstacei.recode.vcf > PASS_fix_he
 bcftools view -f PASS fixed_header_revised_purify_Bdist.recode.vcf > PASS_fixed_header_revised_purify_Bdist.vcf
 ```
 
-#only extract the SNPs
+#Only extract the SNPs
 
 ```
 vcftools --vcf PASS_fix_header_revised_purify_Bstacei.vcf --remove-indels  --recode --recode-INFO-all --out onlySNP_PASS_fix_header_revised_purify_Bstacei
@@ -118,7 +118,7 @@ vcftools --vcf PASS_fix_header_revised_purify_Bstacei.vcf --remove-indels  --rec
 vcftools --vcf PASS_fixed_header_revised_purify_Bdist.vcf --remove-indels  --recode --recode-INFO-all --out onlySNP_PASS_fixed_header_revised_purify_Bdist
 ```
 
-#convert the vcf to hmp format
+#Convert the vcf to hmp format with [run_vcf2hapmap_stacei.job](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_vcf2hapmap_stacei.job) and [run_vcf2hapmap_dist.job] (https://github.com/lilei1/B_hybridum/blob/main/jobs/run_vcf2hapmap_dist.job)
 
 ```
 
