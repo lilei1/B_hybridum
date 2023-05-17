@@ -27,7 +27,7 @@ the raw distachyon/D vcf file is:
 
 ` /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/fake_parents_ref_way/raw_Bdist.vcf.gz`
 
-#Filter out the eight stacei samples from the raw_Bdist.vcf.gz file 
+### Step2: Filter out the eight stacei samples from the raw_Bdist.vcf.gz file 
 
 BG19, BG26, BG31, Bsta5, IBD10, LP6.1, TE4.3, ABR114
 
@@ -36,7 +36,8 @@ The removed stacei sample file are stored [here](https://github.com/lilei1/B_hyb
 vcftools --gzvcf /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/fake_parents_ref_way/raw_Bdist.vcf.gz --remove /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/fake_parents_ref_way/removed_stacei_from_D.txt  --recode --recode-INFO-all --out purify_Bdist
 ```
 
-#Filter out the distachyon samples from raw _Bstacei.vcf.gz
+### Step3: Filter out the distachyon samples from raw _Bstacei.vcf.gz
+
 The removed distachyon sample file are stored [here](https://github.com/lilei1/B_hybridum/blob/main/files/removed_distachyon_from_S.txt)
 
 ```
@@ -91,7 +92,7 @@ cat head_revised_purify_Bdist.recode.vcf nohead_revised_purify_Bdist.recode.vcf>
 ```
 
 
-#zip and index the vcf file
+### Step 4: zip and index the vcf file
 
 ```
 bgzip fix_header_revised_Bstacei_purify_hybridum.recode.vcf
@@ -104,6 +105,8 @@ bcftools index fix_header_revised_Bdist_purify_hybridum.vcf.gz
 
 
 ```
+
+### Step5: Filtering
 
 Since we think we need to do filtering and only extract the SNPs and 'PASS' one, so I can run vcf tools and only extract the PASS and the SNPs. 
 
@@ -131,7 +134,9 @@ vcftools --vcf PASS_fix_header_revised_purify_Bstacei.vcf --remove-indels  --rec
 vcftools --vcf PASS_fixed_header_revised_purify_Bdist.vcf --remove-indels  --recode --recode-INFO-all --out onlySNP_PASS_fixed_header_revised_purify_Bdist
 ```
 
-#Convert the vcf to hmp format with [run_vcf2hapmap_stacei.job](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_vcf2hapmap_stacei.job) and [run_vcf2hapmap_dist.job](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_vcf2hapmap_dist.job)
+### Step 6: Convert the vcf to hmp format 
+
+Convert the vcf to hmp format with [run_vcf2hapmap_stacei.job](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_vcf2hapmap_stacei.job) and [run_vcf2hapmap_dist.job](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_vcf2hapmap_dist.job)
 
 ```
 
@@ -147,7 +152,9 @@ Submitted batch job 2284260
 
 ```
 
-#Then extract the syntenic SNPs with [run_extract_syntenic_SNP.job](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_extract_syntenic_SNP.job)
+### Step 7: Extract the syntenic SNPs
+
+Then extract the syntenic SNPs with [run_extract_syntenic_SNP.job](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_extract_syntenic_SNP.job)
 
 The python script run_extract_syntenic_SNP.job is [here](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_extract_syntenic_SNP.job)
 The lookup table of the position is from Ruben.
@@ -167,6 +174,8 @@ $ wc -l combined_D_dist_S_stacei.hmp.txt
 
 52,520,013 in total 
 ```
+
+### Step 8: Convert to nexus format:
 
 Then I need to think about convert the matrix into the nexus format with [run_convert_nexus.job](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_convert_nexus.job)!!! The python script [convert_to_nexus.py](https://github.com/lilei1/B_hybridum/blob/main/scripts/convert_to_nexus.py)
 
