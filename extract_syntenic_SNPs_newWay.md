@@ -155,7 +155,7 @@ $ wc -l combined_D_dist_S_stacei.hmp.txt
 52,520,013 in total 
 ```
 
-Then I need to think about convert the matrix into the nexus format with [run_convert_nexus.job](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_convert_nexus.job)!!!
+Then I need to think about convert the matrix into the nexus format with [run_convert_nexus.job](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_convert_nexus.job)!!! The python script [convert_to_nexus.py](https://github.com/lilei1/B_hybridum/blob/main/scripts/convert_to_nexus.py)
 
 ```
 sbatch -C skylake -A plant -q jgi_exvivo run_convert_nexus.job
