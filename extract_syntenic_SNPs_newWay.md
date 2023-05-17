@@ -31,13 +31,13 @@ the raw distachyon/D vcf file is:
 
 BG19, BG26, BG31, Bsta5, IBD10, LP6.1, TE4.3, ABR114
 
-The file are stored [here]()
+The removed stacei sample file are stored [here](https://github.com/lilei1/B_hybridum/blob/main/files/removed_stacei_from_D.txt)
 ```
 vcftools --gzvcf /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/fake_parents_ref_way/raw_Bdist.vcf.gz --remove /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/fake_parents_ref_way/removed_stacei_from_D.txt  --recode --recode-INFO-all --out purify_Bdist
 ```
 
 #filter out the distachyon samples from raw _Bstacei.vcf.gz
-The file are stored [here]()
+The removed distachyon sample file are stored [here](https://github.com/lilei1/B_hybridum/blob/main/files/removed_distachyon_from_S.txt)
 
 ```
 vcftools --gzvcf /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/fake_parents_ref_way/raw_Bstacei.vcf.gz --remove /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/fake_parents_ref_way/removed_distachyon_from_S.txt  --recode --recode-INFO-all --out purify_Bstacei
