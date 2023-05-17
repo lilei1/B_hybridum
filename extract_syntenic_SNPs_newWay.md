@@ -118,7 +118,7 @@ vcftools --vcf PASS_fix_header_revised_purify_Bstacei.vcf --remove-indels  --rec
 vcftools --vcf PASS_fixed_header_revised_purify_Bdist.vcf --remove-indels  --recode --recode-INFO-all --out onlySNP_PASS_fixed_header_revised_purify_Bdist
 ```
 
-#Convert the vcf to hmp format with [run_vcf2hapmap_stacei.job](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_vcf2hapmap_stacei.job) and [run_vcf2hapmap_dist.job] (https://github.com/lilei1/B_hybridum/blob/main/jobs/run_vcf2hapmap_dist.job)
+#Convert the vcf to hmp format with [run_vcf2hapmap_stacei.job](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_vcf2hapmap_stacei.job) and [run_vcf2hapmap_dist.job](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_vcf2hapmap_dist.job)
 
 ```
 
