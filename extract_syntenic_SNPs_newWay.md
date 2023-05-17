@@ -4,9 +4,9 @@ I used a way (see [extract_syntenic_SNPs.md](https://github.com/lilei1/B_hybridu
 
 ### Step1: bcftools to split the hybridum samples into distachyon and stacei part
 
-```
 #Only extract the B.distachyon chromosomes
 
+```
 bcftools view /global/projectb/sandbox/reseq/projects/working/Brachypodium_distachyon_redux_Bd21-3/set_hybridum_more/genotype_gvcfs.f1.bf=g10-G3-Q40-QD5.anno.vcf.gz --regions Bdist.Bd1,Bdist.Bd2,Bdist.Bd3,Bdist.Bd4,Bdist.Bd5,Bdist.scaffold_12,Bdist.scaffold_14,Bdist.scaffold_135,Bdist.scaffold_180,Bdist.Bd1_centromere_containing_Bradi1g41430 -O z -o  /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/fake_parents_ref_way/raw_Bdist.vcf.gz
 
 ```
