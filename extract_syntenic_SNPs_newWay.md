@@ -44,7 +44,8 @@ vcftools --gzvcf /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/fake_pa
 ```
 
 #Change the header and chromosome ID:
-##replace the chromosome id  the hybridum-stacei subgenome
+
+##replace the chromosome id  in the hybridum-stacei subgenome
 
 ```
 sed 's/Bstacei.//g' purify_Bstacei.recode.vcf >revised_purify_Bstacei.recode.vcf
@@ -71,6 +72,8 @@ cat head_revised_purify_Bstacei.recode.vcf Nohead_revised_purify_Bstacei.recode.
 ```
 
 #Handle distachyon sample
+
+I need to change the genotypes with D_
 
 ```
 grep "#" revised_purify_Bdist.recode.vcf >head_revised_purify_Bdist.recode.vcf
@@ -103,6 +106,15 @@ bcftools index fix_header_revised_Bdist_purify_hybridum.vcf.gz
 ```
 
 Since we think we need to do filtering and only extract the SNPs and 'PASS' one, so I can run vcf tools and only extract the PASS and the SNPs. 
+
+Below description define the "PASS" with QUAL>=40  and INFO/QD >=5.
+```
+##FILTER=<ID=Filter1,Description="Set if true: QUAL<40 || FILTER!=\"PASS\" || INFO/QD <5">
+##FILTER=<ID=SnpGap,Description="SNP within 10 bp of an indel">
+##FILTER=<ID=IndelGap,Description="Indel within 3 bp of an indel">
+##bcftools_filterVersion=1.9-181-g55b420d+htslib-1.9-162-g6e6cdfc-dirty
+##bcftools_filterCommand=filter -m + -O z -g 10 -G 3 '-eQUAL<40 || FILTER!="PASS" || INFO/QD <5' -s + -o  genotype_gvcfs.f1.bf=g10-G3-Q40-QD5.vcf.gz genotype_gvcfs.filtered.vcf.gz; Date=Wed Sep 22 10:50:16 2021
+````
 
 #Extract the "PASS" one:
 ```
