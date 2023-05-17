@@ -134,12 +134,17 @@ Submitted batch job 2284260
 
 ```
 
-#Then extract the syntenic SNPs
+#Then extract the syntenic SNPs with [run_extract_syntenic_SNP.job](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_extract_syntenic_SNP.job)
+
+The python script run_extract_syntenic_SNP.job is [here](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_extract_syntenic_SNP.job)
+The lookup table of the position is from Ruben.
 
 ```
 sbatch -C skylake -A plant -q jgi_exvivo run_extract_syntenic_SNP.job
 
 Submitted batch job 2361256
+
+#Check how many SNPs we have got:
 
 llei2019@cori16 10:21:09 ~/cscratch/B_hybridum/Ruben_synteny/fake_parents_ref_way 
 $ wc -l combined_D_dist_S_stacei.hmp.txt
@@ -147,9 +152,10 @@ $ wc -l combined_D_dist_S_stacei.hmp.txt
  wc -l combined_D_dist_S_stacei.hmp.txt
 52520013 combined_D_dist_S_stacei.hmp.txt
 
+52,520,013 in total 
 ```
 
-Then I need to think about convert the matrix into the nexus format!!!
+Then I need to think about convert the matrix into the nexus format with [run_convert_nexus.job](https://github.com/lilei1/B_hybridum/blob/main/jobs/run_convert_nexus.job)!!!
 
 ```
 sbatch -C skylake -A plant -q jgi_exvivo run_convert_nexus.job
