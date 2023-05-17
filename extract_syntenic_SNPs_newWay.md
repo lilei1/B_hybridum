@@ -1,5 +1,5 @@
 # Objective: Pilar wants to extract the syntenic SNPs for constructing the phylogenetic tree.
-I used a way (see extract_syntenic_SNPs.md) to do the syntenic SNP extraction but there are  some bugs. So I discussed with John and we came up a new idea (See [example picture](https://github.com/lilei1/B_hybridum/blob/main/pictures/example.png))!!!
+I used a way (see [extract_syntenic_SNPs.md](https://github.com/lilei1/B_hybridum/blob/main/extract_syntenic_SNPs.md)) to do the syntenic SNP extraction but there are  some bugs. So I discussed with John and we came up a new idea (See [example picture](https://github.com/lilei1/B_hybridum/blob/main/pictures/example.png))!!!
 
 
 ### Step1: bcftools to split the hybridum samples into distachyon and stacei part
