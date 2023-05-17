@@ -2,7 +2,7 @@
 I used a way (see extract_syntenic_SNPs.md) to do the syntenic SNP extraction but there are  some bugs. So I discussed with John and we came up a new idea (See [example picture](https://github.com/lilei1/B_hybridum/blob/main/pictures/example.png))!!!
 
 
-### Step1: bcftools to split the hybridum samples into diatachyon and stacei part
+### Step1: bcftools to split the hybridum samples into distachyon and stacei part
 
 ```
 #Only extract the B.distachyon chromosomes
@@ -11,7 +11,7 @@ bcftools view /global/projectb/sandbox/reseq/projects/working/Brachypodium_dista
 
 ```
 
-#Only extract the B.stacei chormosomes with [bcftools_split_stacei.sub]()!!
+#Only extract the B.stacei chormosomes with [bcftools_split_stacei.sub](https://github.com/lilei1/B_hybridum/blob/main/jobs/bcftools_split_stacei.sub)!!
 
 ```
 module load esslurm
