@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --qos=genepool
+#SBATCH --qos=jgi_exvivo
 #SBATCH --time=10:00:00
-#SBATCH --nodes=5
+#SBATCH --nodes=1
 #SBATCH --account=plant
 #SBATCH --job-name=vcf_split_stacei
 #SBATCH --output=vcf_split_stacei.out
 #SBATCH --error=vcf_split_stacei.err
 
-bcftools view /global/homes/j/jieguo/Projects/reseq/Brachypodium_distachyon_redux_Bd21-3/set_hybridum/genotype_gvcfs.f1.bf=g10-G3-Q40-QD5.anno.vcf.gz --regions-file /global/cscratch1/sd/llei2019/B_hybridum/split_vcfs/Bstacei.bed -O z -o /global/u2/l/llei2019/cscratch/B_hybridum/split_vcfs/Bstacei_BH_genotype_gvcfs.f1.bf=g10-G3-Q40-QD5.anno.vcf.gz 
+bcftools view /global/projectb/sandbox/reseq/projects/working/Brachypodium_distachyon_redux_Bd21-3/set_hybridum_more/genotype_gvcfs.f1.bf=g10-G3-Q40-QD5.anno.vcf.gz --regions-file /global/cscratch1/sd/llei2019/B_hybridum/split_vcfs/Bstacei.bed -O z -o /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/fake_parents_ref_way/raw_Bstacei.vcf.gz

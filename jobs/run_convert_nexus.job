@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH --qos=jgi_exvivo
+#SBATCH --time=24:00:00
+#SBATCH --nodes=1
+#SBATCH --account=plant
+#SBATCH --job-name=nexus
+#SBATCH --output=nexus.out
+#SBATCH --error=nexus.err
+
+python /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/jobs/pair-summer-2021/convert_to_nexus.py /global/cscratch1/sd/llei2019/B_hybridum/Ruben_synteny/fake_parents_ref_way/sorted_head_combined_D_dist_S_stacei_noRC.hmp.txt /global/cscratch1/sd/llei2019/B_hybridum/Ruben_synteny/fake_parents_ref_way/sorted_head_combined_D_dist_S_stacei_noRC.nexus

@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH --qos=jgi_exvivo
+#SBATCH --time=10:00:00
+#SBATCH --nodes=1
+#SBATCH --account=plant
+#SBATCH --job-name=vcf2hapmap
+#SBATCH --output=vcf2hapmap.out
+#SBATCH --error=vcf2hapmap.err
+
+java -jar /global/projectb/scratch/llei2019/software/NGSEPcore/NGSEPcore_4.1.1.jar VCFConverter -i /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/fake_parents_ref_way/fix_header_revised_purify_Bstacei.recode.vcf -o  /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/fake_parents_ref_way/fix_header_revised_purify_Bstacei -hapmap
+

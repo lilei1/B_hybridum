@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH --qos=jgi_exvivo
+#SBATCH --time=168:00:00
+#SBATCH --nodes=1
+#SBATCH --account=plant
+#SBATCH --job-name=mergehmp
+#SBATCH --output=mergehmp.out
+#SBATCH --error=mergehmp.err
+
+python /global/u2/l/llei2019/cscratch/B_hybridum/Ruben_synteny/jobs/pair-summer-2021/convert_to_nexus.py --no-filter /global/cscratch1/sd/llei2019/B_hybridum/Ruben_synteny/fake_parents_ref_way/PASS_fixed_header_revised_purify_Bdist_hmp.txt /global/cscratch1/sd/llei2019/B_hybridum/Ruben_synteny/fake_parents_ref_way/PASS_fix_header_revised_purify_Bstacei_hmp.txt /global/cscratch1/sd/llei2019/B_hybridum/Ruben_synteny/Bdistachyon.Bstacei.real_coords.tsv /global/cscratch1/sd/llei2019/B_hybridum/Ruben_synteny/fake_parents_ref_way/combined_D_dist_S_stacei_noRC.hmp.txt 
