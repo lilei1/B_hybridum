@@ -107,7 +107,8 @@ bcftools index fix_header_revised_Bdist_purify_hybridum.vcf.gz
 
 Since we think we need to do filtering and only extract the SNPs and 'PASS' one, so I can run vcf tools and only extract the PASS and the SNPs. 
 
-Below description define the "PASS" with QUAL>=40  and INFO/QD >=5.
+Below description define the "PASS" with QUAL>=40  and INFO/QD >=5 according to JGI's SNP calling pipeline.
+
 ```
 ##FILTER=<ID=Filter1,Description="Set if true: QUAL<40 || FILTER!=\"PASS\" || INFO/QD <5">
 ##FILTER=<ID=SnpGap,Description="SNP within 10 bp of an indel">
